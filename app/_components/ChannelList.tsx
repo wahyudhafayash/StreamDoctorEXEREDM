@@ -61,7 +61,7 @@ const ChannelList = () => {
                 href={ch.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-4xl font-bold text-amber-100 tracking-wide"
+                className="text-4xl font-bold tracking-wide"
                 style={{ fontFamily: "RDR" }}
               >
                 {ch.title}

@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
 import { fetchChannelData } from "@/lib/parseRess";
+import { NextResponse } from "next/server";
 
+// Channel IDs
 const CHANNEL_IDS = [
   "UCHU_kevGAQMf3WQRYggq8Pw",
   "UCgCZoqXuSsNfWqAiazxSHtQ",
@@ -18,17 +19,38 @@ const CHANNEL_IDS = [
   "UCQT32lB_EhrNoqkRPZvl-5A",
 ];
 
-export async function POST(req: NextRequest) {
+type Video = {
+  id: string;
+  title: string;
+  published: string;
+  thumbnail: string;
+  url: string;
+};
+
+type Channel = {
+  channelId: string;
+  title: string;
+  url: string;
+  description: string;
+  videos: Video[];
+};
+
+export async function POST() {
   try {
     const results = await Promise.allSettled(
       CHANNEL_IDS.map((id) => fetchChannelData(id))
     );
+
+    // Properly type res.value as Channel
     const channels = results
       .filter((res) => res.status === "fulfilled")
-      .map((res: any) => res.value);
+      .map((res) => res.value as Channel);
 
     return NextResponse.json(channels);
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 400 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: (error as Error).message },
+      { status: 400 }
+    );
   }
 }

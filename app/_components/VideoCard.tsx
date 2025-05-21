@@ -1,4 +1,6 @@
 import React from "react";
+import CustomImage from "./CustomImage";
+import { useRouter } from "next/navigation";
 
 export type Video = {
   id: string;
@@ -13,43 +15,44 @@ type VideoCardProps = {
 };
 
 const VideoCard: React.FC<VideoCardProps> = ({ video }) => {
+  const router = useRouter();
+
+  const directToYoutube = () => {
+    router.push(video.url);
+  };
+
   return (
-    <>
-      <a
-        href={video.url}
-        key={video.id}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full sm:w-[48%] lg:w-[32%] h-[420px] flex flex-col justify-between border2  rounded-lg  hover:shadow-xl transition-all duration-300"
+    <div
+      onClick={directToYoutube}
+      className="video-card w-full sm:w-[48%] lg:w-[32%] h-[420px] flex flex-col cursor-pointer justify-between border2 rounded-lg hover:shadow-xl transition-all duration-300"
+    >
+      <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t">
+        <CustomImage
+          src={video.thumbnail}
+          alt={video.title}
+          width={600}
+          height={600}
+        />
+      </div>
+
+      {/* Video Title */}
+      <p
+        className="truncate-2-lines text-lg text-amber-100 mt-3 mb-2"
+        style={{ fontFamily: "RDR" }}
       >
-        {/* Gambar 16:9 */}
-        <div className="w-full aspect-[16/9] overflow-hidden rounded-t">
-          <img
-            src={video.thumbnail}
-            alt={video.title}
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
+        {video.title}
+      </p>
 
-        {/* Konten judul */}
-        <p
-          className="truncate-2-lines text-lg text-amber-100 mt-3 mb-2"
-          style={{ fontFamily: "RDR" }}
-        >
-          {video.title}
+      {/* Watch Now Button and Date */}
+      <div className="flex items-center justify-between mt-auto">
+        <button className="text-xl hover:text-amber-100 hover:font-bold transition-all cursor-pointer duration-200">
+          Watch Now
+        </button>
+        <p className="text-sm text-amber-100 tracking-wider">
+          {new Date(video.published).toLocaleDateString()}
         </p>
-
-        {/* Bagian bawah: Watch Now + Tanggal */}
-        <div className="flex items-center justify-between mt-auto">
-          <button className="text-xl hover:text-amber-100 hover:font-bold transition-all cursor-pointer duration-200">
-            Watch Now
-          </button>
-          <p className="text-sm text-amber-100 tracking-wider">
-            {new Date(video.published).toLocaleDateString()}
-          </p>
-        </div>
-      </a>
-    </>
+      </div>
+    </div>
   );
 };
 

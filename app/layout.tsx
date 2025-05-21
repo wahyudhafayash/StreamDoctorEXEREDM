@@ -14,6 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "DOCTOR EXEREDM",
+  description: "Streaming Platform by DOCTOR EXEREDM",
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: "/logo.png",
+    shortcut: "/logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -23,6 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

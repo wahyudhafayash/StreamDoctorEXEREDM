@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -11,7 +12,7 @@ const HeroSection = () => {
           DOCTOR STREAM
         </h1>
         <p
-          className="text-4xl  font-bold tracking-wider"
+          className="text-4xl font-bold tracking-wider"
           style={{ fontFamily: "RDR Lino Regular" }}
         >
           #EXECUTIVEREDM
@@ -20,11 +21,23 @@ const HeroSection = () => {
 
       <div className="flex items-center justify-center gap-10 mt-10 mx-72">
         <span>
-          <img src="/dot.webp" alt="" />
+          <Image
+            src="/dot.webp"
+            alt="Dot icon"
+            width={800}
+            height={800}
+            priority
+          />
         </span>
         <h1 className="text-[30px] font-bold tracking-wider">DOCTOR</h1>
         <span>
-          <img src="/dot.webp" alt="" />
+          <Image
+            src="/dot.webp"
+            alt="Dot icon"
+            width={800}
+            height={800}
+            priority
+          />
         </span>
       </div>
     </div>
