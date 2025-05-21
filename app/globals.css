@@ -24,3 +24,56 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@font-face {
+  font-family: "RDR";
+  src: url("https://db.onlinewebfonts.com/t/ab21a97b9cae2e116d8d1473baefc9f0.eot");
+  src: url("https://db.onlinewebfonts.com/t/ab21a97b9cae2e116d8d1473baefc9f0.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/ab21a97b9cae2e116d8d1473baefc9f0.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/ab21a97b9cae2e116d8d1473baefc9f0.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/ab21a97b9cae2e116d8d1473baefc9f0.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/ab21a97b9cae2e116d8d1473baefc9f0.svg#RDR Lino Regular")
+      format("svg");
+}
+
+.border1 {
+  border: 20px solid transparent;
+  border-image: url("/border1.webp") 30 round;
+  padding: 1rem;
+}
+.borderthumb {
+  border: 20px solid transparent;
+  border-image: url("/border1.webp") 30 round;
+}
+
+.border2 {
+  border: 20px solid transparent;
+  border-image: url("/border2.webp") 30 round;
+  padding: 1rem;
+}
+
+.garis1 {
+  border: solid;
+  -o-border-image: url("/border1.webp") 30 repeat;
+  border-image: url("/border1.webp") 30 repeat;
+  border-width: 14px 0 0;
+  width: 100%;
+}
+
+.border3 {
+  border: 20px solid transparent;
+  border-image: url("/border3.webp") 60 stretch;
+  padding: 1rem;
+  z-index: 1;
+}
+
+.truncate-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
