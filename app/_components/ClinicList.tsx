@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 
 const clinics = [
   {
-    name: "KLINIK ST DENIS",
+    name: "CLINIC ST DENIS",
     members: [
       "Aithne Eirdis",
       "Enzy Emily",
@@ -14,7 +14,7 @@ const clinics = [
     ],
   },
   {
-    name: "KLINIK VALENTINE",
+    name: "CLINIC VALENTINE",
     members: ["Arthur De Medicis", "", "", "", ""],
   },
   {
@@ -36,7 +36,7 @@ const clinics = [
     ],
   },
   {
-    name: "STRAWBERRY",
+    name: "CLINIC STRAWBERRY",
     members: [
       "Max Von Edinburgh",
       "Cody McNeil",
