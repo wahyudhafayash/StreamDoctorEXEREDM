@@ -75,7 +75,7 @@ const ClinicList = () => {
         {[0, 1].map((rowIndex) => (
           <div
             key={rowIndex}
-            className="flex items-start justify-center gap-8 lg:gap-40"
+            className="flex items-start justify-center gap-8 lg:gap-40 lg:px-0"
           >
             {clinics
               .slice(rowIndex === 0 ? 0 : 4, rowIndex === 0 ? 4 : 7)
@@ -120,14 +120,14 @@ const ClinicList = () => {
           return (
             <div
               key={rowIndex}
-              className="flex items-start justify-center gap-8"
+              className="flex items-start justify-center gap-5 px-10"
             >
               {clinics.slice(start, end).map((clinic, clinicIndexGlobal) => {
                 const clinicIndex = start + clinicIndexGlobal;
                 return (
                   <div key={clinicIndex} className="flex flex-col items-center">
                     <h1
-                      className="text-md text-[12px] font-bold mb-2 border-b-2 border-black"
+                      className="text-[10px] font-bold mb-2 border-b-2 border-black"
                       style={{ fontFamily: "RDR" }}
                     >
                       {clinic.name}
@@ -138,7 +138,7 @@ const ClinicList = () => {
                       return (
                         <h2
                           key={i}
-                          className={`text-[10px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
+                          className={`text-[9px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
                             isBold ? "font-bold" : ""
                           }`}
                           style={isBold ? { fontFamily: "RDR" } : {}}
