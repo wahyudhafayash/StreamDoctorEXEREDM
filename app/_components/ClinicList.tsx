@@ -114,20 +114,20 @@ const ClinicList = () => {
 
       {/* Mobile layout (3-3-1) */}
       <div className="flex flex-col space-y-12 lg:hidden">
-        {[0, 1, 2].map((rowIndex) => {
-          const start = rowIndex * 3;
-          const end = rowIndex === 2 ? clinics.length : start + 3;
+        {[0, 1, 2, 3].map((rowIndex) => {
+          const start = rowIndex * 2;
+          const end = rowIndex === 3 ? clinics.length : start + 2;
           return (
             <div
               key={rowIndex}
-              className="flex items-start justify-center gap-5 px-10"
+              className="flex items-start justify-center gap-15 px-10"
             >
               {clinics.slice(start, end).map((clinic, clinicIndexGlobal) => {
                 const clinicIndex = start + clinicIndexGlobal;
                 return (
                   <div key={clinicIndex} className="flex flex-col items-center">
                     <h1
-                      className="text-[10px] font-bold mb-2 border-b-2 border-black"
+                      className="text-[12px] font-bold mb-2 border-b-2 border-black"
                       style={{ fontFamily: "RDR" }}
                     >
                       {clinic.name}
@@ -138,7 +138,7 @@ const ClinicList = () => {
                       return (
                         <h2
                           key={i}
-                          className={`text-[9px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
+                          className={`text-[10px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
                             isBold ? "font-bold" : ""
                           }`}
                           style={isBold ? { fontFamily: "RDR" } : {}}
@@ -159,3 +159,48 @@ const ClinicList = () => {
 };
 
 export default ClinicList;
+
+{
+  /* <div className="flex flex-col space-y-12 lg:hidden">
+        {[0, 1, 2].map((rowIndex) => {
+          const start = rowIndex * 3;
+          const end = rowIndex === 2 ? clinics.length : start + 3;
+          return (
+            <div
+              key={rowIndex}
+              className="flex items-start justify-center gap-8 px-10"
+            >
+              {clinics.slice(start, end).map((clinic, clinicIndexGlobal) => {
+                const clinicIndex = start + clinicIndexGlobal;
+                return (
+                  <div key={clinicIndex} className="flex flex-col items-center">
+                    <h1
+                      className="text-[12px] font-bold mb-2 border-b-2 border-black"
+                      style={{ fontFamily: "RDR" }}
+                    >
+                      {clinic.name}
+                    </h1>
+                    {clinic.members.map((name, i) => {
+                      const key = `${clinicIndex}-${i}`;
+                      const isBold = boldMap[key];
+                      return (
+                        <h2
+                          key={i}
+                          className={`text-[10px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
+                            isBold ? "font-bold" : ""
+                          }`}
+                          style={isBold ? { fontFamily: "RDR" } : {}}
+                        >
+                          {name}
+                        </h2>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+    </div> */
+}
