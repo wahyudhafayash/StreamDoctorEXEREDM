@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 
 const clinics = [
   {
-    name: "KLINIK ST DENIS",
+    name: "CLINIC ST DENIS",
     members: [
       "Aithne Eirdis",
       "Enzy Emily",
@@ -14,11 +14,11 @@ const clinics = [
     ],
   },
   {
-    name: "KLINIK VALENTINE",
-    members: ["Arthur De Medicis", "", "", "", ""],
+    name: "RHODES",
+    members: ["Arthur De Medicis", "Luca Gray", "Davy Voltaire", "", ""],
   },
   {
-    name: "RHODES",
+    name: "CLINIC VALENTINE",
     members: ["James Floch", "Malika Sakari", "Kanaka Kendall", "", ""],
   },
   {
@@ -36,7 +36,7 @@ const clinics = [
     ],
   },
   {
-    name: "STRAWBERRY",
+    name: "CLINIC STRAWBERRY",
     members: [
       "Max Von Edinburgh",
       "Cody McNeil",
@@ -47,7 +47,7 @@ const clinics = [
   },
   {
     name: "FORT WALLACE",
-    members: ["Xue Pai Lai", "", "", "", ""],
+    members: ["Xue Pai Lai", "Dara Malia", "Elias Van Der Meer", "", ""],
   },
 ];
 
@@ -127,7 +127,7 @@ const ClinicList = () => {
                 return (
                   <div key={clinicIndex} className="flex flex-col items-center">
                     <h1
-                      className="text-[12px] font-bold mb-2 border-b-2 border-black"
+                      className="text-[10px] font-bold mb-2 border-b-2 border-black"
                       style={{ fontFamily: "RDR" }}
                     >
                       {clinic.name}
@@ -138,7 +138,7 @@ const ClinicList = () => {
                       return (
                         <h2
                           key={i}
-                          className={`text-[10px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
+                          className={`text-[8px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
                             isBold ? "font-bold" : ""
                           }`}
                           style={isBold ? { fontFamily: "RDR" } : {}}

@@ -17,6 +17,7 @@ const CHANNEL_IDS = [
   "UC04yaXbxeiG_sN47idcdimg",
   "UC5s6bkQaV_kkZvZdWIkUh1A",
   "UCQT32lB_EhrNoqkRPZvl-5A",
+  "UCJd8bGU7fpkBkVVSE2Wly7A",
 ];
 
 type Video = {
