@@ -8,7 +8,6 @@ const CHANNEL_IDS = [
   "UCo2_aQJNINkysdgn10qvT8w",
   "UCfX2myyFOyFooFkzT4JnhWw",
   "UCWu5WvlHmbAu1LqdZGmlq9w",
-  "UCMZgonFYA2tdwSWP-G5SQVw",
   "UC1LS0oiuuSGkBlSiGVnA3wg",
   "UCkmXYtBjhilwv8P2jZPfHMQ",
   "UCBVNmRX2wOiiq2Pip_jT8CA",
@@ -18,6 +17,7 @@ const CHANNEL_IDS = [
   "UC5s6bkQaV_kkZvZdWIkUh1A",
   "UCQT32lB_EhrNoqkRPZvl-5A",
   "UCJd8bGU7fpkBkVVSE2Wly7A",
+  "UC69TZFfU1PWy4hNYLvBWB1g",
 ];
 
 type Video = {
