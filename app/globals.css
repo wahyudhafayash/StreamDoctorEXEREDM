@@ -53,7 +53,6 @@ body {
 .border2 {
   border: 20px solid transparent;
   border-image: url("/border2.webp") 30 round;
-  padding: 1rem;
 }
 
 .garis1 {
