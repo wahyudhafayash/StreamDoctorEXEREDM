@@ -16,10 +16,9 @@ const ChannelList = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1495); // Tailwind 'lg' breakpoint
+      setIsMobile(window.innerWidth < 1495);
     };
 
-    // Set initial state and add listener
     handleResize();
     window.addEventListener("resize", handleResize);
 

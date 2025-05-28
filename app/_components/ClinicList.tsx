@@ -8,14 +8,20 @@ const clinics = [
     members: [
       "Aithne Eirdis",
       "Enzy Emily",
-      "Ale De Jong",
-      "Bopak Zhang",
-      "Henrietta Seraphina",
+      "Josie Mikaelson",
+      "Berlin De Amber",
+      "Ri Hannah",
     ],
   },
   {
     name: "RHODES",
-    members: ["Arthur De Medicis", "Luca Gray", "Davy Voltaire", "", ""],
+    members: [
+      "Arthur De Medicis",
+      "Luca Gray",
+      "Davy Voltaire",
+      "Eitan Constantine",
+      "Mary Constantine",
+    ],
   },
   {
     name: "CLINIC VALENTINE",
@@ -23,15 +29,21 @@ const clinics = [
   },
   {
     name: "EMERALD RANCH",
-    members: ["Benny Da Firenze", "", "", "", ""],
+    members: [
+      "Benny Da Firenze",
+      "Bopak Zhang",
+      "Henrietta Seraphina",
+      "Ale De Jong",
+      "",
+    ],
   },
   {
     name: "BLACKWATER",
     members: [
       "Marshall River",
-      "Berlin De Amber",
       "Jacques Arnaud",
       "Daniil Clerk",
+      "Henry Montgomery",
       "",
     ],
   },
@@ -41,12 +53,12 @@ const clinics = [
       "Max Von Edinburgh",
       "Cody McNeil",
       "Hayln Denali",
-      "Josie Mikaelson",
-      "",
+      "Floyd Dalton",
+      "Theresa Xiu",
     ],
   },
   {
-    name: "FORT WALLACE",
+    name: "BACCHUS STATION",
     members: ["Xue Pai Lai", "Dara Malia", "Elias Van Der Meer", "", ""],
   },
 ];
