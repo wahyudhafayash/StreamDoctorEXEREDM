@@ -1,25 +1,6 @@
 import { fetchChannelData } from "@/lib/parseRess";
 import { NextResponse } from "next/server";
 
-// Channel IDs
-const CHANNEL_IDS = [
-  "UCHU_kevGAQMf3WQRYggq8Pw",
-  "UCgCZoqXuSsNfWqAiazxSHtQ",
-  "UCo2_aQJNINkysdgn10qvT8w",
-  "UCfX2myyFOyFooFkzT4JnhWw",
-  "UCWu5WvlHmbAu1LqdZGmlq9w",
-  "UC1LS0oiuuSGkBlSiGVnA3wg",
-  "UCkmXYtBjhilwv8P2jZPfHMQ",
-  "UCBVNmRX2wOiiq2Pip_jT8CA",
-  "UCMKcqFslBFm7i8CXkMab2hQ",
-  "UCwn9VkmZ57G7WoNaOJt3yoA",
-  "UC04yaXbxeiG_sN47idcdimg",
-  "UC5s6bkQaV_kkZvZdWIkUh1A",
-  "UCQT32lB_EhrNoqkRPZvl-5A",
-  "UCJd8bGU7fpkBkVVSE2Wly7A",
-  "UC69TZFfU1PWy4hNYLvBWB1g",
-];
-
 type Video = {
   id: string;
   title: string;
@@ -36,16 +17,40 @@ type Channel = {
   videos: Video[];
 };
 
+type ChannelMeta = {
+  id: string;
+  author: string;
+};
+
+const rawEnv = process.env.YOUTUBE_CHANNELS || "[]";
+
+let CHANNELS: ChannelMeta[] = [];
+try {
+  CHANNELS = JSON.parse(rawEnv);
+} catch (e) {
+  console.error("Failed to parse YOUTUBE_CHANNELS from .env:", e);
+}
+
 export async function POST() {
   try {
     const results = await Promise.allSettled(
-      CHANNEL_IDS.map((id) => fetchChannelData(id))
+      CHANNELS.map((channel) => fetchChannelData(channel.id))
     );
 
-    // Properly type res.value as Channel
     const channels = results
-      .filter((res) => res.status === "fulfilled")
-      .map((res) => res.value as Channel);
+      .map((res, index) => {
+        if (res.status === "fulfilled") {
+          const channelData = res.value as Channel;
+          return {
+            ...channelData,
+            _author: CHANNELS[index].author,
+          };
+        }
+        return null;
+      })
+      .filter(
+        (channel): channel is Channel & { _author: string } => channel !== null
+      );
 
     return NextResponse.json(channels);
   } catch (error) {

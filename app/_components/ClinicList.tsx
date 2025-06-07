@@ -4,62 +4,98 @@ import React, { useState, useEffect } from "react";
 
 const clinics = [
   {
-    name: "CLINIC ST DENIS",
+    name: "Klinik St Denis",
     members: [
       "Aithne Eirdis",
       "Enzy Emily",
       "Josie Mikaelson",
-      "Berlin De Amber",
+      "Berlin de Amber",
       "Ri Hannah",
+      "Vivienne Pearl",
+      "Jaffar Rawdrick",
+      "Jia Jessyln",
+      "Roseanna d’Or Picotte",
+      "Sophia S Libra",
     ],
   },
   {
-    name: "RHODES",
+    name: "Kantor Sheriff Rhodes",
     members: [
-      "Arthur De Medicis",
-      "Luca Gray",
-      "Davy Voltaire",
-      "Eitan Constantine",
-      "Mary Constantine",
+      "Xue Pai Lai",
+
+      "Elias Van Der Meer",
+      "Dogler De",
+
+      "Cresentia Frances",
+      "Paida Blinders",
+      "Hilton Forsaken",
+      "Jeff Kubo",
+      "Joey Wales",
     ],
   },
   {
-    name: "CLINIC VALENTINE",
-    members: ["James Floch", "Malika Sakari", "Kanaka Kendall", "", ""],
+    name: "Klinik Valentine",
+    members: ["James Floch", "Valerie Giorga", "Kanaka Kendall"],
   },
   {
-    name: "EMERALD RANCH",
+    name: "Kantor Pos Emerald Ranch",
     members: [
-      "Benny Da Firenze",
-      "Bopak Zhang",
-      "Henrietta Seraphina",
-      "Ale De Jong",
-      "",
+      "Dara Malia",
+      "Clayton Ridge",
+      "Willow Sugar El’Jonson",
+      "Charles Locke",
+      "Lily Rose",
+      "Luca Ellio",
+      "Levin Oscar Abdullah",
+      "Zhao Feng",
+      "James Noah",
+      "Zion Moore",
     ],
   },
   {
-    name: "BLACKWATER",
+    name: "Klinik Blackwater",
     members: [
       "Marshall River",
+      "Ace Mulyono",
       "Jacques Arnaud",
       "Daniil Clerk",
       "Henry Montgomery",
-      "",
+      "Siti Jubaedah",
+      "Wat Tyler",
+      "Andrea La Roche",
+      "Tessa Everdeen",
     ],
   },
   {
-    name: "CLINIC STRAWBERRY",
+    name: "Klinik Strawberry",
     members: [
       "Max Von Edinburgh",
       "Cody McNeil",
-      "Hayln Denali",
+      "Halyn Denali",
       "Floyd Dalton",
       "Theresa Xiu",
+      "Dantes Burner",
+      "Lila Grace",
+      "Luis Acapello",
+      "Nelson Andersen",
+      "Chloé Antoinette",
     ],
   },
   {
-    name: "BACCHUS STATION",
-    members: ["Xue Pai Lai", "Dara Malia", "Elias Van Der Meer", "", ""],
+    name: "Wapiti",
+    members: ["Malika", "Charlotte Antoinette", "-"],
+  },
+  {
+    name: "Shaman Wapiti",
+    members: ["Enolla"],
+  },
+  {
+    name: "Armadillo",
+    members: [],
+  },
+  {
+    name: "Van Horn",
+    members: ["Ale De Jong"],
   },
 ];
 
@@ -71,7 +107,7 @@ const ClinicList = () => {
     clinics.forEach((clinic, clinicIndex) => {
       clinic.members.forEach((_, memberIndex) => {
         const key = `${clinicIndex}-${memberIndex}`;
-        newMap[key] = Math.random() < 0.4;
+        newMap[key] = Math.random() < 0.5;
       });
     });
     setBoldMap(newMap);
@@ -79,140 +115,36 @@ const ClinicList = () => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center mt-10 space-y-12 text-transparent bg-clip-text bg-[url('/BGText.webp')]"
+      className="flex flex-wrap justify-center gap-10 px-4 py-10 text-transparent bg-clip-text bg-[url('/BGText.webp')]"
       style={{ fontFamily: "RDR" }}
     >
-      {/* Desktop layout (4-3) */}
-      <div className="hidden lg:flex flex-col space-y-12">
-        {[0, 1].map((rowIndex) => (
-          <div
-            key={rowIndex}
-            className="flex items-start justify-center gap-8 lg:gap-40 lg:px-0"
-          >
-            {clinics
-              .slice(rowIndex === 0 ? 0 : 4, rowIndex === 0 ? 4 : 7)
-              .map((clinic, clinicIndexGlobal) => {
-                const clinicIndex =
-                  rowIndex === 0 ? clinicIndexGlobal : clinicIndexGlobal + 4;
-                return (
-                  <div key={clinicIndex} className="flex flex-col items-center">
-                    <h1
-                      className="text-md lg:text-[30px] font-bold mb-2 border-b-2 border-black"
-                      style={{ fontFamily: "RDR" }}
-                    >
-                      {clinic.name}
-                    </h1>
-                    {clinic.members.map((name, i) => {
-                      const key = `${clinicIndex}-${i}`;
-                      const isBold = boldMap[key];
-                      return (
-                        <h2
-                          key={i}
-                          className={`text-sm lg:text-[23px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
-                            isBold ? "font-bold" : ""
-                          }`}
-                          style={isBold ? { fontFamily: "RDR" } : {}}
-                        >
-                          {name}
-                        </h2>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-          </div>
-        ))}
-      </div>
-
-      {/* Mobile layout (3-3-1) */}
-      <div className="flex flex-col space-y-12 lg:hidden">
-        {[0, 1, 2, 3].map((rowIndex) => {
-          const start = rowIndex * 2;
-          const end = rowIndex === 3 ? clinics.length : start + 2;
-          return (
-            <div
-              key={rowIndex}
-              className="flex items-start justify-center gap-15 px-10"
-            >
-              {clinics.slice(start, end).map((clinic, clinicIndexGlobal) => {
-                const clinicIndex = start + clinicIndexGlobal;
-                return (
-                  <div key={clinicIndex} className="flex flex-col items-center">
-                    <h1
-                      className="text-[10px] font-bold mb-2 border-b-2 border-black"
-                      style={{ fontFamily: "RDR" }}
-                    >
-                      {clinic.name}
-                    </h1>
-                    {clinic.members.map((name, i) => {
-                      const key = `${clinicIndex}-${i}`;
-                      const isBold = boldMap[key];
-                      return (
-                        <h2
-                          key={i}
-                          className={`text-[8px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
-                            isBold ? "font-bold" : ""
-                          }`}
-                          style={isBold ? { fontFamily: "RDR" } : {}}
-                        >
-                          {name}
-                        </h2>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
+      {clinics.map((clinic, clinicIndex) => (
+        <div
+          key={clinicIndex}
+          className="flex flex-col items-center w-full sm:w-1/2 lg:w-1/3 xl:w-1/4"
+        >
+          <h1 className="text-md sm:text-lg md:text-xl lg:text-2xl font-bold mb-2 border-b-2 border-black">
+            {clinic.name}
+          </h1>
+          {clinic.members.map((name, i) => {
+            const key = `${clinicIndex}-${i}`;
+            const isBold = boldMap[key];
+            return (
+              <h2
+                key={i}
+                className={`text-sm md:text-base lg:text-lg tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
+                  isBold ? "font-bold" : ""
+                }`}
+                style={isBold ? { fontFamily: "RDR" } : {}}
+              >
+                {name}
+              </h2>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };
 
 export default ClinicList;
-
-{
-  /* <div className="flex flex-col space-y-12 lg:hidden">
-        {[0, 1, 2].map((rowIndex) => {
-          const start = rowIndex * 3;
-          const end = rowIndex === 2 ? clinics.length : start + 3;
-          return (
-            <div
-              key={rowIndex}
-              className="flex items-start justify-center gap-8 px-10"
-            >
-              {clinics.slice(start, end).map((clinic, clinicIndexGlobal) => {
-                const clinicIndex = start + clinicIndexGlobal;
-                return (
-                  <div key={clinicIndex} className="flex flex-col items-center">
-                    <h1
-                      className="text-[12px] font-bold mb-2 border-b-2 border-black"
-                      style={{ fontFamily: "RDR" }}
-                    >
-                      {clinic.name}
-                    </h1>
-                    {clinic.members.map((name, i) => {
-                      const key = `${clinicIndex}-${i}`;
-                      const isBold = boldMap[key];
-                      return (
-                        <h2
-                          key={i}
-                          className={`text-[10px] tracking-wide border-b-2 border-transparent hover:border-black transition-all duration-300 cursor-default ${
-                            isBold ? "font-bold" : ""
-                          }`}
-                          style={isBold ? { fontFamily: "RDR" } : {}}
-                        >
-                          {name}
-                        </h2>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-    </div> */
-}
